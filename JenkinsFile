@@ -1,0 +1,48 @@
+pipeline{
+    
+    agent any
+    
+    tools{
+        maven 'maven 3.6.2'
+        
+    }
+    stages{
+        stage("initialize"){
+            steps{
+             sh '''
+                echo "PATH = ${PATH}"
+                echo "M2_HOME = ${M2_HOME}"
+                '''   
+            }
+        }
+    
+    stage ('validate') {
+         steps {
+            git 'https://github.com/AKSarav/TomcatMavenApp.git'
+             sh 'mvn validate'
+         }
+    } 
+ 
+    stage ('compile') {
+         steps {
+            git 'https://github.com/AKSarav/TomcatMavenApp.git'
+             sh 'mvn compile'
+         }
+    } 
+    stage ('test') {
+         steps {
+            git 'https://github.com/AKSarav/TomcatMavenApp.git'
+             sh 'mvn test'
+         }
+    }     
+     stage ('package') {
+         steps {
+            git 'https://github.com/AKSarav/TomcatMavenApp.git'
+             sh 'mvn package'
+         }
+    }  
+     
+    
+}
+
+}
