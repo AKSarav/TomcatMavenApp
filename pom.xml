@@ -43,15 +43,16 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.1</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-		    <attachClasses>true</attachClasses>
-        	    <webResources>
-            		<resource>
-                	    <directory>src/main/webapp</directory>
-                	    <filtering>true</filtering>
-            		</resource>
-        	    </webResources>
-                </configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+                <archive>
+                    <addMavenDescriptor>false</addMavenDescriptor>
+                    <manifestEntries>
+                        <Implementation-Version>${project.version}</Implementation-Version>
+                        <Implementation-Revision>${git.revision}</Implementation-Revision>
+                        <X-Git-Commits-Count>${git.commitsCount}</X-Git-Commits-Count>
+                    </manifestEntries>
+                </archive>			
+            </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -91,5 +92,6 @@
 		</plugin>
         </plugins>
     </build>
+
 
 </project>
