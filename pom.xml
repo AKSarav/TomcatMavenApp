@@ -44,7 +44,6 @@
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
 		    <attachClasses>true</attachClasses>
-        	    <webXml>target/web.xml</webXml>
         	    <webResources>
             		<resource>
                 	    <directory>src/main/webapp</directory>
