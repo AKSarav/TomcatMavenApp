@@ -43,6 +43,14 @@
                 <version>2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+		    <attachClasses>true</attachClasses>
+        	    <webXml>target/web.xml</webXml>
+        	    <webResources>
+            		<resource>
+                	    <directory>src/main/webapp</directory>
+                	    <filtering>true</filtering>
+            		</resource>
+        	    </webResources>
                 </configuration>
             </plugin>
             <plugin>
@@ -66,9 +74,6 @@
                                     <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
-                            <buildArgs>
-			                    <WAR_FILE>target/${project.build.finalName}.war</WAR_FILE>
-			                </buildArgs>
                         </configuration>
                     </execution>
                 </executions>
