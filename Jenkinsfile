@@ -13,7 +13,7 @@ pipeline {
              
           }
         }
-	 stage('Execute Java Code') {
+	 stage('Execute Maven Build') {
            steps {
 		sh '''
 		mvn package
