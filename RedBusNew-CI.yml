@@ -1,0 +1,21 @@
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/sit
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-2019
+  steps:
+  - checkout: self
+  - task: CmdLine@2
+    displayName: Command Line Script
+    inputs:
+      script: >
+        touch new.txt
+
+        echo "Hello DevOps" > new.txt
+
+        cat new.txt
